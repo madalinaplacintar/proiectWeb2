@@ -1,36 +1,67 @@
-<template>
-<header> 
-    <div class="musicHeader">
-        <h1>
-        Music
-        </h1>
-    </div>  
-    <div class="search">
-        <input type="text" placeholder="Search.."/>
-    </div>  
-</header>
-<body>
- <div class="footer">
-    <div class="three-inline-buttons">
-        <p>
-            <a class="button" href="#">Listen now</a>
-            <a class="button" href="#">Browse</a>
-            <a class="button" href="#">Library</a>
-        </p>
-    </div></div>  
-
-</body>    
-
-
-</template>
-
-
-<script >
+<script>
+// import { mdiMusicCircle } from '@mdi/js';   
+import FormSearchVue from './FormSearch.vue'; 
 export default {
     name:"Menu"
 }
 </script>
+<template>
+    <!--vuetify 
+    
+    
+    -->
+    <v-app>  
+      
+    <v-main>     
+<header> 
+    <div class="musicHeader">
+        <h1>
+        Music Here
+        </h1>
+    </div>  
+
+</header>
+<body>
+<div class="d-flex justify-space-around align-center flex-column flex-sm-row fill-height">
+      <v-btn variant="flat"
+      color="pink">
+   <v-icon>mdiMusicCircle</v-icon>
+        Listen now 
+      </v-btn>
+  
+      <v-btn
+        variant="flat"
+        color="pink"
+      >
+        Browse
+      </v-btn>
+      
+      <v-btn
+        variant="flat"
+        color="pink"
+      >
+        Library
+      </v-btn>
+      <v-btn>
+        <span class="material-symbols-outlined">
+          search
+        </span>
+      </v-btn>
+</div>      
+
+</body>   
+</v-main> 
+</v-app>
+
+</template>
+
+
+
 <style>
+img{
+  width: 150px;
+  height: 150px;
+}
 .musicHeader{
     text-align: center;
 }
