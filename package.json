@@ -11,13 +11,15 @@
     "axios": "^1.2.0",
     "bootstrap": "^5.2.2",
     "bootstrap-vue": "^2.23.1",
+    "mdi-vue": "^3.0.13",
     "vue": "^3.2.45",
     "vue-material-design-icons": "^5.1.2",
     "vue-router": "^4.1.6",
     "vuetify": "^3.0.2"
   },
   "devDependencies": {
-    "@mdi/js": "^7.0.96",
+    "@mdi/font": "^7.1.96",
+    "@mdi/js": "^7.1.96",
     "@rushstack/eslint-patch": "^1.1.4",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue/eslint-config-prettier": "^7.0.0",

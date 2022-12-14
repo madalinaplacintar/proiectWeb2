@@ -14,7 +14,7 @@
         >
     </v-text-field>
     <div class="d-flex justify-space-around align-center flex-column flex-sm-row fill-height">
-        <v-btn outline color="pink" type="submit" >
+        <v-btn icon="mdi-home" outline color="pink" type="submit" >
                 Search
         </v-btn>
     </div>    
