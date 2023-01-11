@@ -6,6 +6,7 @@
     </div>
   </div>    
   </header>
+  <InfoVue></InfoVue>
     <v-form  @submit.prevent="submitSearch(true)">
         <v-text-field
           v-model="search"
@@ -14,9 +15,14 @@
         >
     </v-text-field>
     <div class="d-flex justify-space-around align-center flex-column flex-sm-row fill-height">
-        <v-btn icon="mdi-home" outline color="pink" type="submit" >
+        <v-btn outline color="pink" type="submit" >
                 Search
         </v-btn>
+        <v-btn 
+   variant="flat"
+   color="white" >
+     <router-link to="/info">About</router-link>
+    </v-btn> 
     </div>    
     </v-form>
  
@@ -47,49 +53,45 @@
 </template>
 <script>
 import axios from 'axios'
+import Info from './Info.vue'
 export default{
-    data(){
-        return{
-            albums:[],
-            entity: 'album',
-            label:'Search for Artist',
-            search: ''
-        }
+    data() {
+        return {
+            albums: [],
+            entity: "album",
+            label: "Search for Artist",
+            search: ""
+        };
     },
     watch: {
-      search: function (val) {
-        if (!val) {
-          this.albums = []
-        }
-      },
-
-      entity: function () {
-          this.search = ''
-          this.label = this.entity === 'album' ? 'Artist Name' : 'Music'
-      },
+        search: function (val) {
+            if (!val) {
+                this.albums = [];
+            }
+        },
+        entity: function () {
+            this.search = "";
+            this.label = this.entity === "album" ? "Artist Name" : "Music";
+        },
     },
-
     methods: {
-     
-         resizeArtworkUrl (album) {
-        return album.artworkUrl100.replace("110x110", "160x160")
-      },
-
-      submitSearch () {
-        if (!this.search) {
-          return
+        resizeArtworkUrl(album) {
+            return album.artworkUrl100.replace("110x110", "160x160");
+        },
+        submitSearch() {
+            if (!this.search) {
+                return;
+            }
+            return axios.get(`https://itunes.apple.com/search?term=${this.search}&entity=${this.entity}&limit=200&offset=${this.page * 200}`)
+                .then((response) => {
+                this.albums = response.data.results.sort((a, b) => a.releaseDate > b.releaseDate ? -1 : 1);
+            });
+        },
+        toiTunesAlbum(album) {
+            window.open(album.collectionViewUrl, "_blank");
         }
-
-        return axios.get(`https://itunes.apple.com/search?term=${this.search}&entity=${this.entity}&limit=200&offset=${this.page * 200}`)
-          .then((response) => {
-            this.albums = response.data.results.sort((a, b) => a.releaseDate > b.releaseDate ? -1 : 1)
-          })
-      },
-
-      toiTunesAlbum (album) {
-        window.open(album.collectionViewUrl, '_blank')
-      }
-    }
+    },
+    components: { Info }
 }
 
 </script>

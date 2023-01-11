@@ -1,7 +1,5 @@
 <script setup>
 // import TheDeck from "./components/TheDeck.vue";
-import Menu from "./components/menu.vue"
-import fisrtPage from "./components/1stpage.vue"
 import FormSearchVue from "./components/FormSearch.vue";
 </script>
 

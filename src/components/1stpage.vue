@@ -9,7 +9,8 @@ export default {
         <v-main>
     <header>
         <div>
-       <h1 class="d-flex justify-space-around align-center flex-column flex-sm-row fill-height"> Welcome to my music App</h1>
+       <h1 class="d-flex justify-space-around align-center flex-column flex-sm-row fill-height"> WELCOME</h1>
+       
             <div class="d-flex justify-space-around align-center flex-column flex-sm-row fill-height">
                 <img src="../assets/music-logo.png"/>
             </div>
@@ -33,7 +34,12 @@ export default {
    <v-btn 
    variant="flat"
    color="black" >
-     <router-link to="/search"> Get started</router-link>
+     <router-link to="/search"> To My Music App</router-link>
+    </v-btn>
+    <v-btn 
+   variant="flat"
+   color="black" >
+     <router-link to="/info"> About</router-link>
     </v-btn>
 </div>    
 </body>
